@@ -1,0 +1,1 @@
+const double card_size = 130;
