@@ -1,8 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import './shared/dimensions.dart';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
+
+import 'widgets/HostelCards.dart';
 Future<String> loadAsset() async {
   return await rootBundle.loadString('assets/config.json');
 }
@@ -35,14 +38,19 @@ Widget build(BuildContext context)
   return new  Scaffold( 
     appBar : new AppBar(  
       centerTitle: true,
-      title:new Text('YOur HOme',textAlign:TextAlign.center),
+      title:new Text('YoHo',textAlign:TextAlign.center),
       
 
     elevation:defaultTargetPlatform == TargetPlatform.android ? 5.0:0.0, 
+    actions: <Widget>[
+      IconButton(icon: Icon(Icons.person,color: Colors.white,),onPressed: null)
+    ],
     ),
     
 //Bottom NavigationBar starts here
-    bottomNavigationBar:BottomNavigationBar(  
+
+    bottomNavigationBar:BottomNavigationBar( 
+       type: BottomNavigationBarType.fixed,
        currentIndex: 0, 
        backgroundColor: Colors.indigo,
        selectedItemColor: Colors.white,
@@ -123,7 +131,7 @@ Widget build(BuildContext context)
           ),
         
          new ListTile(  
-            leading:IconButton(icon: Icon(Icons.arrow_right,color:Colors.indigo,size:30.0), onPressed: null) ,
+            leading:IconButton(icon: Icon(Icons.exit_to_app,color:Colors.indigo,size:30.0), onPressed: null) ,
            title: Text("Sign out",style: TextStyle(color:Colors.indigo,fontSize: 20.0),
           ),
          ),
@@ -135,150 +143,80 @@ Widget build(BuildContext context)
       )
     ),
 
-    body:new Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-     
-     children:<Widget>[ 
-       SizedBox(height:20.0),
-      Padding(
-        padding: const EdgeInsets.only(left:30.0),
+    body: SingleChildScrollView(
+          child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+       mainAxisAlignment: MainAxisAlignment.center,
+       children:<Widget>[ 
+         SizedBox(height:20.0),
         
-        child:Image.asset('android/images/yoho_pg.jpg' ,width: 400.0, height: 100.0),
-    
-       
-      ),
-    SizedBox(height:20.0),
-      Container(
-        margin:const EdgeInsets.only(left:50.0) ,
-        padding: EdgeInsets.symmetric(horizontal:20.0,vertical:0.0),
-      width:300.0,
+          
+          Image.asset('assets/images/yoho_pg.jpg' ,width: 400.0, height: 100.0),
+      
+         
+        
+      SizedBox(height:20.0),
+        Container(
+          // margin:const EdgeInsets.only(left:50.0) ,
+          padding: EdgeInsets.symmetric(horizontal:20.0,vertical:0.0),
+        width:300.0,
   
-        //Search box codes!
-        decoration: BoxDecoration(
-          
-          color: Colors.indigo.withOpacity(.9),
-          borderRadius: BorderRadius.circular(100.0)
-        ),
-        child: TextField(
-          autofocus: false,
-          style:  TextStyle(color: Colors.white),
-          
-          decoration: InputDecoration(
-          
-            suffixIcon: Icon(Icons.search,color: Colors.white,),
-          border: InputBorder.none,
-     
-          filled: false,
-          fillColor: Colors.white,
-          
-          hintText:"Search by name/location",
-          hintStyle:TextStyle(color: Colors.white)
+          //Search box codes!
+          decoration: BoxDecoration(
+            
+            color: Colors.indigo.withOpacity(.9),
+            borderRadius: BorderRadius.circular(100.0)
           ),
-          
-        ),
+          child: TextField(
+            autofocus: false,
+            style:  TextStyle(color: Colors.white),
+            
+            decoration: InputDecoration(
+            
+            suffixIcon: Icon(Icons.search,color: Colors.white,),
+            border: InputBorder.none,
+       
+            filled: false,
+            fillColor: Colors.white,
+            
+            hintText:"Search by name/location",
+            hintStyle:TextStyle(color: Colors.white)
+            ),
+            
+          ),
 
-      ),
+        ),
 Padding(
   padding: const EdgeInsets.all(30.0),
   child:   Column(
   
   
   
-    crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
   
-    mainAxisAlignment: MainAxisAlignment.center,
-  
-    children: <Widget>[
-  
-
-  
-   // codes for cards(Boys PG,girls PG,Family PG and One time)  
-  Row(
-  children: <Widget>[
-  Card(
-  semanticContainer: true,
-  elevation: 3.0,
-  child: Container(
-  alignment: Alignment.center,
-  decoration: BoxDecoration(color: Colors.white),
-      child:Column(
       mainAxisAlignment: MainAxisAlignment.center,
+  
       children: <Widget>[
-        Image.asset("android/images/boys_pg.jpg",height: 150,width:150,fit:BoxFit.cover),
-        Text("Boys",style: TextStyle(color:Colors.indigoAccent,fontSize: 20.0,fontWeight: FontWeight.w700),),
-        ],       
-      ),
-    ),
-  ),
-
-  Spacer(),
   
-  Card(
-  semanticContainer: true,
-  elevation: 3.0,
-  child: Container(
-  child:Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-        Image.asset("android/images/girls_hostel.jpg", height:150,width:150,fit:BoxFit.cover),
-        SizedBox(height:8.0),
-        Text("Girls",style: TextStyle(color:Colors.indigoAccent,fontSize: 20.0,fontWeight: FontWeight.w700),),
-        ],
-      )
-    ),
-  )
-  ],
-  ),
 
-  Padding(
-    padding: EdgeInsets.symmetric(horizontal:0.0,vertical:10.0),
-  ),
-  
-      Row(children: <Widget>[
-  
-  Card(
-
-  semanticContainer: true,
-  elevation: 3.0,
-    child: Container(
  
-       child:Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-        
-             Image.asset("android/images/pg_family.jpg", height:150,width:150,fit:BoxFit.cover),
-          SizedBox(height:8.0),
-          Text("Family",style: TextStyle(color:Colors.indigoAccent,fontSize: 20.0,fontWeight: FontWeight.w700),),
-        ],
-      )
-    ),
-  ),
+   // codes for cards(Boys PG,girls PG,Family PG and One time)  
+Row(children: <Widget>[
+      HostelCards(title: "Boys",imgUrl: 'boys_pg.jpg',),
+  HostelCards(title: "Girls",imgUrl: 'girls_hostel.jpg',),
+],),
+Row(children: <Widget>[
+      HostelCards(title: "Family",imgUrl: 'pg_family.jpg',),
+  HostelCards(title: "One Day",imgUrl: 'one_day.jpg',),
+],),
 
-  Spacer(),
-  Card(
-  semanticContainer: true,
-  elevation: 3.0,
   
-    child: Container(
-      decoration: BoxDecoration(color: Colors.white),
-       child:Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-        
-             Image.asset("android/images/one_day.jpg", height: 150,width: 150,fit:BoxFit.cover),
-          SizedBox(height:8.0),
-         Text("One Time",style: TextStyle(color:Colors.indigoAccent,fontSize: 20.0,fontWeight: FontWeight.w700),),
-        ],
-      )
-     ),
-   ),
-  ],
-),
 ],
 ),
 )
 ],
-)
+),
+    )
 );  
 }
 }
