@@ -18,9 +18,9 @@ class Yoho extends StatelessWidget{
 
 Widget build (BuildContext context)
 {
-  return new MaterialApp(   
+  return  MaterialApp(   
   debugShowCheckedModeBanner: false,
-  theme:new ThemeData (primarySwatch:Colors.indigo),  
+  theme: ThemeData (primarySwatch:Colors.indigo),  
    
   home:HomePage(),
 
@@ -35,10 +35,10 @@ class HomePage extends StatelessWidget {
 Widget build(BuildContext context)
 {
 
-  return new  Scaffold( 
-    appBar : new AppBar(  
+  return   Scaffold( 
+    appBar :  AppBar(  
       centerTitle: true,
-      title:new Text('YoHo',textAlign:TextAlign.center),
+      title: Text('YoHo',textAlign:TextAlign.center),
       
 
     elevation:defaultTargetPlatform == TargetPlatform.android ? 5.0:0.0, 
@@ -76,61 +76,61 @@ Widget build(BuildContext context)
     ),
 
    //Drawer codes starts here 
-    drawer:new Drawer( 
-      child:new ListView(  
+    drawer: Drawer( 
+      child: ListView(  
         children:<Widget> [  
-          new UserAccountsDrawerHeader( 
-            accountName: new Text(' Masum Ahmed '),
-            accountEmail: new Text('radians86@yahoo.in'),
-            currentAccountPicture:new CircleAvatar( 
+           UserAccountsDrawerHeader( 
+            accountName:  Text(' Masum Ahmed '),
+            accountEmail:  Text('radians86@yahoo.in'),
+            currentAccountPicture: CircleAvatar( 
 
             backgroundColor:Colors.white,
-            child:new Text('P'),
+            child: Text('P'),
             ),
           ),
       
-          new ListTile(  
+           ListTile(  
            leading:IconButton(icon: Icon(Icons.account_circle,color:Colors.indigo,size:30.0), onPressed: null) ,
            title: Text("My profile",style: TextStyle(color:Colors.indigo,fontSize: 20.0),),
 
             //Page routing            
             onTap:(){
                  Navigator.of(context).pop();
-                 Navigator.of(context).push(new MaterialPageRoute( builder:(BuildContext context) => new NewPage ()));
+                 Navigator.of(context).push( MaterialPageRoute( builder:(BuildContext context) =>  Page ()));
 
                 }
           ),
-          new ListTile(  
+           ListTile(  
            leading:IconButton(icon: Icon(Icons.info,color:Colors.indigo,size:30.0), onPressed: null) ,
            title: Text("About us",style: TextStyle(color:Colors.indigo,fontSize: 20.0),),
 
             onTap:(){
                  Navigator.of(context).pop();
-                 Navigator.of(context).push(new MaterialPageRoute( builder:(BuildContext context) => new NewPage ()));
+                 Navigator.of(context).push( MaterialPageRoute( builder:(BuildContext context) =>  Page ()));
 
                 }
    
           ),
 
-          new ListTile(  
+           ListTile(  
             leading:IconButton(icon: Icon(Icons.call,color:Colors.indigo,size:30.0), onPressed: null) ,
            title: Text("Contact us",style: TextStyle(color:Colors.indigo,fontSize: 20.0),),
 
             onTap:(){
                  Navigator.of(context).pop();
-                 Navigator.of(context).push(new MaterialPageRoute( builder:(BuildContext context) => new NewPage ()));
+                 Navigator.of(context).push( MaterialPageRoute( builder:(BuildContext context) =>  Page ()));
 
                 }
    
 
           ),
 
-          new ListTile(  
+           ListTile(  
             leading:IconButton(icon: Icon(Icons.share,color:Colors.indigo,size:30.0), onPressed: null) ,
            title: Text("Share",style: TextStyle(color:Colors.indigo,fontSize: 20.0),),
           ),
         
-         new ListTile(  
+          ListTile(  
             leading:IconButton(icon: Icon(Icons.exit_to_app,color:Colors.indigo,size:30.0), onPressed: null) ,
            title: Text("Sign out",style: TextStyle(color:Colors.indigo,fontSize: 20.0),
           ),
@@ -151,7 +151,7 @@ Widget build(BuildContext context)
          SizedBox(height:20.0),
         
           
-          Image.asset('assets/images/yoho_pg.jpg' ,width: 400.0, height: 100.0),
+          // Image.asset('assets/images/yoho_pg.jpg' ,width: 400.0, height: 100.0),
       
          
         
@@ -221,18 +221,18 @@ Row(children: <Widget>[
 }
 }
 
-//New page starts here
-class NewPage extends StatelessWidget 
+// page starts here
+class Page extends StatelessWidget 
 {
-  final String title='new';
+  final String title='';
   @override 
   Widget build (BuildContext context){ 
-    return new Scaffold(  
-      appBar:new AppBar(  
-        title:new Text("New Page"),
+    return  Scaffold(  
+      appBar: AppBar(  
+        title: Text(" Page"),
       ),
-      body:new Center(  
-        child:new Text("New Page"),
+      body: Center(  
+        child: Text(" Page"),
         
       )
     );
