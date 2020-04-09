@@ -181,26 +181,29 @@ Widget build(BuildContext context)
                 color: Accent,
                 borderRadius: BorderRadius.circular(100.0)
               ),
-              child: TextField(
-                onTap:()
-                { Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen()));
-                },
-                autofocus: false,
-                style:  TextStyle(color: Primary),
-                
-                decoration: InputDecoration(
-                
-                prefixIcon: Icon(Icons.search,color: Primary,),
-                // suffixIcon: IconButton(onPressed: null, icon:Icon(Icons.close),color: Primary,),
-                border: InputBorder.none,
+              child: Material(
+                color:Accent,
+                              child: TextField(
+                  onTap:()
+                  { Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen()));
+                  },
+                  autofocus: false,
+                  style:  TextStyle(color: Primary),
+                  
+                  decoration: InputDecoration(
+                  
+                  prefixIcon: Icon(Icons.search,color: Primary,),
+                  // suffixIcon: IconButton(onPressed: null, icon:Icon(Icons.close),color: Primary,),
+                  border: InputBorder.none,
            
-                filled: false,
-                fillColor: Primary,
-                
-                hintText:"Search PG/Hostel",
-                hintStyle:TextStyle(color: Primary)
+                  filled: false,
+                  fillColor: Primary,
+                  
+                  hintText:"Search PG/Hostel",
+                  hintStyle:TextStyle(color: Primary)
+                  ),
+                  
                 ),
-                
               ),
 
             ),

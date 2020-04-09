@@ -69,23 +69,25 @@ crossAxisAlignment: CrossAxisAlignment.start,
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(100.0)
               ),
-              child: TextField(
-                autofocus: false,
-                style:  TextStyle(color: Primary),
-                
-                decoration: InputDecoration(
-                
-                prefixIcon: Icon(Icons.search,color: Primary,),
-                suffixIcon: IconButton(onPressed: null, icon:Icon(Icons.close),color: Primary,),
-                border: InputBorder.none,
+              child: Material(
+                              child: TextField(
+                  autofocus: false,
+                  style:  TextStyle(color: Primary),
+                  
+                  decoration: InputDecoration(
+                  
+                  prefixIcon: Icon(Icons.search,color: Primary,),
+                  suffixIcon: IconButton(onPressed: null, icon:Icon(Icons.close),color: Primary,),
+                  border: InputBorder.none,
          
-                filled: false,
-                fillColor: Colors.white,
-                
-                hintText:"Silchar",
-                hintStyle:TextStyle(color: Primary)
+                  filled: false,
+                  fillColor: Colors.white,
+                  
+                  hintText:"Silchar",
+                  hintStyle:TextStyle(color: Primary)
+                  ),
+                  
                 ),
-                
               ),
 
             ),
