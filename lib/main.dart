@@ -34,8 +34,24 @@ Widget build (BuildContext context)
 
 }
 }
+class HomePage extends StatefulWidget {
 
-class HomePage extends StatelessWidget { 
+  HomePage({Key key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+ String search;
+  TextEditingController _controller = TextEditingController();
+  @override
+  void initState() { 
+    super.initState();
+    _controller.text='';
+    search='';
+  }
+  
   @override
 Widget build(BuildContext context)
 {
@@ -184,15 +200,27 @@ Widget build(BuildContext context)
               child: Material(
                 color:Accent,
                               child: TextField(
-                  onTap:()
-                  { Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen()));
-                  },
+                                controller: _controller,
+                 onSubmitted: (e)
+                 {
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen(value:search)));
+                 },
                   autofocus: false,
                   style:  TextStyle(color: Primary),
-                  
+                   onChanged: (e)
+                  {
+search=e;
+
+           print(e);       },
                   decoration: InputDecoration(
                   
                   prefixIcon: Icon(Icons.search,color: Primary,),
+                  suffixIcon: _controller.text.isNotEmpty?IconButton(onPressed: ()
+                  {
+                   search='';
+                   _controller.clear();
+                  }, icon:Icon(Icons.close),color: Primary,):null,
+                  
                   // suffixIcon: IconButton(onPressed: null, icon:Icon(Icons.close),color: Primary,),
                   border: InputBorder.none,
            
@@ -265,6 +293,12 @@ HostelCards(title: "ONE DAY",imgUrl: 'fam.png',),
     )
 );  
 }
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return null;
+  }
 }
 
 // page starts here

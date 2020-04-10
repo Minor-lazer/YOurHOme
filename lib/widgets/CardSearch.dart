@@ -11,17 +11,19 @@ CardSearch({Key key,this.image,this.name,this.address,this.mprice,this.disc});
       return Card(
           margin: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10.0),
           elevation: 5,
+          
           color:Primary,
           child: Column(children: <Widget>[
 
           Container(
-          height: h(context)/6,
+          height: h(context)/5,
           width:w(context),
+          padding: EdgeInsets.symmetric(vertical:10,horizontal:10),
           decoration: BoxDecoration(
             color: Accent,
-            image: DecorationImage(image: AssetImage(this.image),
-            fit: BoxFit.cover)
+            
           ),
+          child: Image.asset('assets/images/${this.image}',width: w(context),fit: BoxFit.cover,),
           
           ),
           Container(
