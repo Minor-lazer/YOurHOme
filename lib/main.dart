@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 // import 'package:yoho/screens/SearchScreen.dart';
 import './shared/dimensions.dart';
 import './shared/colors.dart';
@@ -118,7 +119,7 @@ Widget build(BuildContext context)
       
            ListTile(  
            leading:IconButton(icon: Icon(Icons.account_circle,color:Primary,size:30.0), onPressed: null) ,
-           title: Text("My profile",style: TextStyle(color:Primary,fontSize: 20.0),),
+           title: Text("My profile",style: GoogleFonts.montserrat(color:Primary,fontSize: 20.0),),
 
             //Page routing            
             onTap:(){
@@ -129,7 +130,7 @@ Widget build(BuildContext context)
           ),
            ListTile(  
            leading:IconButton(icon: Icon(Icons.info,color:Primary,size:30.0), onPressed: null) ,
-           title: Text("About us",style: TextStyle(color:Primary,fontSize: 20.0),),
+           title: Text("About us",style: GoogleFonts.montserrat(color:Primary,fontSize: 20.0),),
 
             onTap:(){
                  Navigator.of(context).pop();
@@ -141,7 +142,7 @@ Widget build(BuildContext context)
 
            ListTile(  
             leading:IconButton(icon: Icon(Icons.call,color:Primary,size:30.0), onPressed: null) ,
-           title: Text("Contact us",style: TextStyle(color:Primary,fontSize: 20.0),),
+           title: Text("Contact us",style: GoogleFonts.montserrat(color:Primary,fontSize: 20.0),),
 
             onTap:(){
                  Navigator.of(context).pop();
@@ -154,12 +155,12 @@ Widget build(BuildContext context)
 
            ListTile(  
             leading:IconButton(icon: Icon(Icons.share,color:Primary,size:30.0), onPressed: null) ,
-           title: Text("Share",style: TextStyle(color:Primary,fontSize: 20.0),),
+           title: Text("Share",style: GoogleFonts.montserrat(color:Primary,fontSize: 20.0),),
           ),
         
           ListTile(  
             leading:IconButton(icon: Icon(Icons.exit_to_app,color:Primary,size:30.0), onPressed: null) ,
-           title: Text("Sign out",style: TextStyle(color:Primary,fontSize: 20.0),
+           title: Text("Sign out",style: GoogleFonts.montserrat(color:Primary,fontSize: 20.0),
           ),
          ),
 
@@ -206,7 +207,7 @@ Widget build(BuildContext context)
                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen(value:search)));
                  },
                   autofocus: false,
-                  style:  TextStyle(color: Primary),
+                  style:  GoogleFonts.montserrat(color: Primary),
                    onChanged: (e)
                   {
 search=e;
@@ -228,7 +229,7 @@ search=e;
                   fillColor: Primary,
                   
                   hintText:"Search PG/Hostel",
-                  hintStyle:TextStyle(color: Primary)
+                  hintStyle:GoogleFonts.montserrat(color: Primary)
                   ),
                   
                 ),
@@ -270,7 +271,7 @@ Column(
 
  Padding(
    padding: const EdgeInsets.only(bottom:10.0),
-   child: Text("CATEGORIES",style: TextStyle(color:Primary,fontSize: 25,fontWeight: FontWeight.bold),),
+   child: Text("CATEGORIES",style: GoogleFonts.montserrat(color:Primary,fontSize: 25,fontWeight: FontWeight.bold),),
  ),
  // codes for cards(Boys PG,girls PG,Family PG and One time)  
 Row(

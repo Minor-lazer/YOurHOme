@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../shared/colors.dart';
 import '../shared/dimensions.dart';
 class CardSearch extends StatelessWidget {
@@ -43,15 +44,17 @@ children: <Widget>[
   Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
-    Text('${this.name}',style:TextStyle(color:Primary,fontSize: 20,fontWeight: FontWeight.w500)),
-    Text('${this.address}',style:TextStyle(color:Primary.withOpacity(.8),fontSize: 15,fontWeight: FontWeight.w400)),
+    Text('${this.name}',style:GoogleFonts.roboto(color:Primary,fontSize: 20,fontWeight: FontWeight.w500)),
+    SizedBox(height:5),
+    Text('${this.address}',style:GoogleFonts.montserrat(color:Primary.withOpacity(.8),fontSize: 15,fontWeight: FontWeight.w400)),
+    SizedBox(height:15),
     Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text('₹${(this.mprice - (this.mprice/100)).floor()}',style:TextStyle(color:Primary,fontSize: 20,fontWeight: FontWeight.w500)),
+        Text('₹${(this.mprice - (this.mprice/100)).floor()}',style:GoogleFonts.montserrat(color:Primary,fontSize: 20,fontWeight: FontWeight.w500)),
         SizedBox(width:10),
-    Text('₹${this.mprice}',style:TextStyle(color:Primary,fontSize: 15,fontWeight: FontWeight.w400,decoration: TextDecoration.lineThrough)),
+    Text('₹${this.mprice}',style:GoogleFonts.montserrat(color:Primary,fontSize: 15,fontWeight: FontWeight.w400,decoration: TextDecoration.lineThrough)),
     ],)
   ],),
   RaisedButton(onPressed: ()
@@ -64,7 +67,7 @@ children: <Widget>[
   shape:RoundedRectangleBorder(borderRadius:BorderRadius.all(Radius.circular(20.0))),
   color:Primary,
 
-  child: Text('${this.disc}% Off',style:TextStyle(color:Colors.white,fontSize: 20,fontWeight: FontWeight.w800)),
+  child: Text('${this.disc}% Off',style:GoogleFonts.roboto(color:Colors.white,fontSize: 20,fontWeight: FontWeight.w800)),
   )
 ],
           ),

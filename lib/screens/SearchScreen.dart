@@ -108,7 +108,7 @@ crossAxisAlignment: CrossAxisAlignment.start,
                               child: TextField(
                         controller: _controller,        
                   autofocus: false,
-                  style:  TextStyle(color: Primary),
+                  style:  GoogleFonts.montserrat(color: Primary),
                   onChanged: (e)
                   {
 search=e;
@@ -127,7 +127,7 @@ search=e;
                   fillColor: Colors.white,
                   
                   hintText:"Search PG/HOSTEL",
-                  hintStyle:TextStyle(color: Primary)
+                  hintStyle:GoogleFonts.montserrat(color: Primary)
                   ),
                 
                 ),
@@ -143,18 +143,18 @@ SizedBox(height:10.0),
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
             children: <Widget>[
-                  Text('3 PGs Found',style:TextStyle(color: Primary,fontSize: 20)),
+                  Text('3 PGs Found',style:GoogleFonts.roboto(color: Primary,fontSize: 20)),
               Row(children: <Widget>[
             
 IconButton(icon: Icon(Icons.sort,color:Primary), onPressed: null),
-Text('Sort',style:TextStyle(color: Primary,fontSize: 15)),
+Text('Sort',style:GoogleFonts.roboto(color: Primary,fontSize: 15)),
               ],),
 Row(children: <Widget>[
 IconButton(icon: FaIcon(FontAwesomeIcons.filter,color: Primary,size: 15,), onPressed: (){
   _filterBSheet(context);
 }),
 
-Text('Filter',style:TextStyle(color: Primary,fontSize: 15)),
+Text('Filter',style:GoogleFonts.roboto(color: Primary,fontSize: 15)),
 ],),
 
 

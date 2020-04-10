@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:yoho/shared/dimensions.dart';
 import '../shared/colors.dart';
 class Location extends StatelessWidget
@@ -25,7 +26,7 @@ class Location extends StatelessWidget
          ),
          child: this.isIcon?Icon(icon,color: Colors.white,):Image.asset(this.imgUrl),
        ),
-       Text('${this.city}',style: TextStyle(color:Primary,fontSize: 15,)),
+       Text('${this.city}',style: GoogleFonts.montserrat(color:Primary,fontSize: 15,)),
      ],
    );
   }
