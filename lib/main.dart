@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 // import 'package:yoho/screens/SearchScreen.dart';
 import './shared/dimensions.dart';
 import './shared/colors.dart';
@@ -34,8 +35,24 @@ Widget build (BuildContext context)
 
 }
 }
+class HomePage extends StatefulWidget {
 
-class HomePage extends StatelessWidget { 
+  HomePage({Key key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+ String search;
+  TextEditingController _controller = TextEditingController();
+  @override
+  void initState() { 
+    super.initState();
+    _controller.text='';
+    search='';
+  }
+  
   @override
 Widget build(BuildContext context)
 {
@@ -102,7 +119,7 @@ Widget build(BuildContext context)
       
            ListTile(  
            leading:IconButton(icon: Icon(Icons.account_circle,color:Primary,size:30.0), onPressed: null) ,
-           title: Text("My profile",style: TextStyle(color:Primary,fontSize: 20.0),),
+           title: Text("My profile",style: GoogleFonts.montserrat(color:Primary,fontSize: 20.0),),
 
             //Page routing            
             onTap:(){
@@ -113,7 +130,7 @@ Widget build(BuildContext context)
           ),
            ListTile(  
            leading:IconButton(icon: Icon(Icons.info,color:Primary,size:30.0), onPressed: null) ,
-           title: Text("About us",style: TextStyle(color:Primary,fontSize: 20.0),),
+           title: Text("About us",style: GoogleFonts.montserrat(color:Primary,fontSize: 20.0),),
 
             onTap:(){
                  Navigator.of(context).pop();
@@ -125,7 +142,7 @@ Widget build(BuildContext context)
 
            ListTile(  
             leading:IconButton(icon: Icon(Icons.call,color:Primary,size:30.0), onPressed: null) ,
-           title: Text("Contact us",style: TextStyle(color:Primary,fontSize: 20.0),),
+           title: Text("Contact us",style: GoogleFonts.montserrat(color:Primary,fontSize: 20.0),),
 
             onTap:(){
                  Navigator.of(context).pop();
@@ -138,12 +155,12 @@ Widget build(BuildContext context)
 
            ListTile(  
             leading:IconButton(icon: Icon(Icons.share,color:Primary,size:30.0), onPressed: null) ,
-           title: Text("Share",style: TextStyle(color:Primary,fontSize: 20.0),),
+           title: Text("Share",style: GoogleFonts.montserrat(color:Primary,fontSize: 20.0),),
           ),
         
           ListTile(  
             leading:IconButton(icon: Icon(Icons.exit_to_app,color:Primary,size:30.0), onPressed: null) ,
-           title: Text("Sign out",style: TextStyle(color:Primary,fontSize: 20.0),
+           title: Text("Sign out",style: GoogleFonts.montserrat(color:Primary,fontSize: 20.0),
           ),
          ),
 
@@ -184,15 +201,27 @@ Widget build(BuildContext context)
               child: Material(
                 color:Accent,
                               child: TextField(
-                  onTap:()
-                  { Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen()));
-                  },
+                                controller: _controller,
+                 onSubmitted: (e)
+                 {
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen(value:search)));
+                 },
                   autofocus: false,
-                  style:  TextStyle(color: Primary),
-                  
+                  style:  GoogleFonts.montserrat(color: Primary),
+                   onChanged: (e)
+                  {
+search=e;
+
+           print(e);       },
                   decoration: InputDecoration(
                   
                   prefixIcon: Icon(Icons.search,color: Primary,),
+                  suffixIcon: _controller.text.isNotEmpty?IconButton(onPressed: ()
+                  {
+                   search='';
+                   _controller.clear();
+                  }, icon:Icon(Icons.close),color: Primary,):null,
+                  
                   // suffixIcon: IconButton(onPressed: null, icon:Icon(Icons.close),color: Primary,),
                   border: InputBorder.none,
            
@@ -200,7 +229,7 @@ Widget build(BuildContext context)
                   fillColor: Primary,
                   
                   hintText:"Search PG/Hostel",
-                  hintStyle:TextStyle(color: Primary)
+                  hintStyle:GoogleFonts.montserrat(color: Primary)
                   ),
                   
                 ),
@@ -242,7 +271,7 @@ Column(
 
  Padding(
    padding: const EdgeInsets.only(bottom:10.0),
-   child: Text("CATEGORIES",style: TextStyle(color:Primary,fontSize: 25,fontWeight: FontWeight.bold),),
+   child: Text("CATEGORIES",style: GoogleFonts.montserrat(color:Primary,fontSize: 25,fontWeight: FontWeight.bold),),
  ),
  // codes for cards(Boys PG,girls PG,Family PG and One time)  
 Row(
@@ -265,6 +294,12 @@ HostelCards(title: "ONE DAY",imgUrl: 'fam.png',),
     )
 );  
 }
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return null;
+  }
 }
 
 // page starts here

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:yoho/shared/dimensions.dart';
 import '../shared/colors.dart';
 class HostelCards extends StatelessWidget
@@ -25,7 +26,7 @@ mainAxisAlignment: MainAxisAlignment.center,
         
           Image.asset("assets/icons/$imgUrl",width:w(context)/6,fit:BoxFit.cover),
           SizedBox(height:10),
-       Text("$title",style: TextStyle(color:Colors.white,fontSize: fontSize,fontWeight: FontWeight.w500),),
+       Text("$title",style: GoogleFonts.montserrat(color:Colors.white,fontSize: fontSize,fontWeight: FontWeight.w500),),
         ],       
       ),
     ),
